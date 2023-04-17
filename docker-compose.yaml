@@ -1,0 +1,17 @@
+version: '3'
+services:
+  streamlit_app:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 8501:8501
+      
+  ngrok:
+   image: wernight/ngrok:latest
+   ports:
+      - 4040:4040
+   environment:
+      NGROK_PROTOCOL: http
+      NGROK_PORT: 149.102.153.159:8501
+      NGROK_AUTH: 2MiPVtzC7ci3vSmrfcHAR0XFpNb_2vDDAhZzSkPrVAQq7v8xz    
